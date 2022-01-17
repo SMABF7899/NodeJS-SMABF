@@ -13,4 +13,7 @@
 
 ```npm i --save express body-parser```\
 ```npm i --save ejs```\
-```npm i --save-dev nodemon```
+```npm i --save-dev nodemon```\
+```npm i --save cookie-parser express-validator express-session connect-mongo passport connect-flash```\
+```npm i --save mongoose```\
+```npm i --save passport-local```

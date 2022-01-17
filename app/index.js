@@ -3,6 +3,14 @@ const app = express();
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const validator = require('express-validator');
+const session = require('express-session');
+const mongoStore = require('connect-mongo')(session());
+const mongoose = require('mongoose')
+const flash = require('connect-flash')
+const passport = require('passport')
+const {request} = require("express");
 
 module.exports = class Application {
     constructor() {
@@ -12,7 +20,7 @@ module.exports = class Application {
 
     setupExpress() {
         const server = http.createServer(app);
-        server.listen(3000, () => console.log('Listening on port 3000'));
+        server.listen(8080, () => console.log('Listening on port 8080'));
     }
 
     setConfig() {
@@ -21,6 +29,15 @@ module.exports = class Application {
         app.set('views', path.resolve('./resource/views'));
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended : true}));
+        app.use(validator());
+        app.use(session({
+            secret : 'mySecretKey',
+            resave : true,
+            saveUninitialized : true,
+            store : new mongoStore({ mongooseConnection : mongoose.connection })
+        }));
+        app.use(cookieParser('mySecretKey'));
+        app.use(flash());
         app.get('/', (req , res) => {
             res.json('SMABF');
         });
