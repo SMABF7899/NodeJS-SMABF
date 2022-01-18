@@ -3,7 +3,12 @@
 ```node -v```
 
 **Install MongoDB (Windows, Linux, OSX) https://mongodb.com** \
-**After install MongoDB, add MongoDB path to Environment Variable**
+**After install MongoDB, add MongoDB path to Environment Variable**\
+**Create data/db on your system**\
+**Run this command in terminal to start MongoDB**\
+```mongod --bind_ip localhost```\
+**You can use your IP Address**\
+**Default port is 27017**
 
 **Install Robo 3T (Windows, Linux, OSX) https://robomongo.org** 
 
@@ -12,8 +17,13 @@
 **Enter the project information**
 
 ```npm i --save express body-parser```\
-```npm i --save ejs```\
+```npm i --save ejs@2.5.9```\
 ```npm i --save-dev nodemon```\
-```npm i --save cookie-parser express-validator express-session connect-mongo passport connect-flash```\
+```npm i --save cookie-parser```\
+```npm i --save express-validator@5.1.2```\
+```npm i --save express-session```\
+```npm i --save connect-mongo@2.0.1```\
+```npm i --save passport```\
+```npm i --save connect-flash```\
 ```npm i --save mongoose```\
 ```npm i --save passport-local```

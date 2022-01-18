@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const validator = require('express-validator');
 const session = require('express-session');
-const mongoStore = require('connect-mongo')(session());
+const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const passport = require('passport')
@@ -15,6 +15,7 @@ const {request} = require("express");
 module.exports = class Application {
     constructor() {
         this.setupExpress();
+        this.setMongoConnection()
         this.setConfig();
     }
 
@@ -34,12 +35,17 @@ module.exports = class Application {
             secret : 'mySecretKey',
             resave : true,
             saveUninitialized : true,
-            store : new mongoStore({ mongooseConnection : mongoose.connection })
+            store : new MongoStore({ mongooseConnection : mongoose.connection })
         }));
         app.use(cookieParser('mySecretKey'));
         app.use(flash());
         app.get('/', (req , res) => {
             res.json('SMABF');
         });
+    }
+
+    setMongoConnection () {
+        mongoose.Promise = global.Promise;
+        mongoose.connect("mongodb://172.16.121.204:27017/nodejs_smabf");
     }
 }
