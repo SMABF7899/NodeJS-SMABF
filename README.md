@@ -27,3 +27,5 @@
 ```npm i --save connect-flash```\
 ```npm i --save mongoose```\
 ```npm i --save passport-local```
+
+**Copy** ```config-sample.js``` **to** ```config.js``` **and customize configs**

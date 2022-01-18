@@ -22,7 +22,7 @@ module.exports = class Application {
 
     setupExpress() {
         const server = http.createServer(app);
-        server.listen(8080, () => console.log('Listening on port 8080'));
+        server.listen(config.PORT, () => console.log('Listening on port ' + config.PORT));
     }
 
     setConfig() {
