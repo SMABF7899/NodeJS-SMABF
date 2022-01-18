@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const path = require('path');
+const config = require('./config')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const validator = require('express-validator');
@@ -46,6 +47,7 @@ module.exports = class Application {
 
     setMongoConnection () {
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://172.16.121.204:27017/nodejs_smabf");
+        let mongoDB_URL = "mongodb://" + config.IP_DB + ":27017/nodejs_smabf";
+        mongoose.connect(mongoDB_URL);
     }
 }
