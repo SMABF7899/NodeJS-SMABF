@@ -26,6 +26,8 @@
 ```npm i --save passport```\
 ```npm i --save connect-flash```\
 ```npm i --save mongoose```\
-```npm i --save passport-local```
+```npm i --save passport-local```\
+```npm i --save auto-bind@1.2.0```\
+```npm i --save app-module-path```
 
 **Copy** ```config-sample.js``` **to** ```config.js``` **and customize configs**

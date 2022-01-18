@@ -18,6 +18,7 @@ module.exports = class Application {
         this.setupExpress();
         this.setMongoConnection()
         this.setConfig();
+        this.setRouters();
     }
 
     setupExpress() {
@@ -40,13 +41,15 @@ module.exports = class Application {
         }));
         app.use(cookieParser('mySecretKey'));
         app.use(flash());
-        app.get('/', (req , res) => {
-            res.json('SMABF');
-        });
     }
 
     setMongoConnection () {
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://" + config.IP_DB + ":27017/nodejs_smabf");
+        mongoose.connect("mongodb://" + config.IP_DB + ":27017/nodejs_smabf").then(r => console.log("Connect to MongoDB " + config.IP_DB + ":27017"));
+    }
+
+    setRouters () {
+        //app.use(require('app/routes/api'));
+        app.use(require('app/routes/web'));
     }
 }
