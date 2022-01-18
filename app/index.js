@@ -47,7 +47,6 @@ module.exports = class Application {
 
     setMongoConnection () {
         mongoose.Promise = global.Promise;
-        let mongoDB_URL = "mongodb://" + config.IP_DB + ":27017/nodejs_smabf";
-        mongoose.connect(mongoDB_URL);
+        mongoose.connect("mongodb://" + config.IP_DB + ":27017/nodejs_smabf");
     }
 }
