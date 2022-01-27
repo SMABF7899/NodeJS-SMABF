@@ -6,7 +6,7 @@
 **After install MongoDB, add MongoDB path to Environment Variable**\
 **Create data/db on your system**\
 **Run this command in terminal to start MongoDB**\
-```mongod --dbpath=/your-path/data/db--bind_ip 127.0.0.1```\
+```mongod --dbpath=/your-path/data/db --bind_ip 127.0.0.1```\
 **You can use your IP Address**\
 **Default port is 27017**
 
