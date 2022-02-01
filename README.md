@@ -25,9 +25,11 @@
 ```npm i --save connect-mongo@2.0.1```\
 ```npm i --save passport@0.4.0```\
 ```npm i --save connect-flash```\
-```npm i --save mongoose```\
+```npm i --save mongoose@5.0.16```\
 ```npm i --save passport-local```\
 ```npm i --save auto-bind@1.2.0```\
-```npm i --save app-module-path```
+```npm i --save app-module-path```\
+```npm i --save express-recaptcha@4.0.2```\
+```npm i --save bcrypt```
 
 **Copy** ```config-sample.js``` **to** ```config.js``` **and customize configs**

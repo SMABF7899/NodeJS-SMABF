@@ -18,7 +18,18 @@ passport.use('local.register', new localStrategy({
     passReqToCallback: true
 }, (req, email, password, done) => {
     console.log(email, password)
-    User.findById({'email': email}, (err, user) => {
-        console.log(err, user)
+    User.findOne({'email': email}, (err, user) => {
+        if (err) return done(err)
+        if (user) return done(null , false, req.flash('errors', 'این کاربر قبلا در سامانه ثبت نام کرده است. به صفحه ورود مراجعه کنید'));
+        const newUser = new User({
+            name : req.body.name,
+            email,
+            password
+        });
+
+        newUser.save(err => {
+            if(err) return done(err, false, req.flash('errors', 'خطا در ثبت نام در سامانه. لطفا دوباره تلاش کنید'));
+            done(null, newUser)
+        })
     })
 }))
