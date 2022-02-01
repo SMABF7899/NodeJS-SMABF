@@ -10,13 +10,9 @@
                                 <svg class="flex-shrink-0 me-auto" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
                                 لطفاً موارد ستاره دار را مشخص نمایید
                             </div>
-                            <% if (messages.length > 0) { %>
-                            <div class="alert alert-danger alert-dismissible">
-                                <% messages.forEach(error => { %>
-                                    <%= error %><br>
-                                <% }) %>
-                            </div>
-                            <% } %>
+
+                            <%- include('./../layouts/error-messages') -%>
+
                             <div class="form-check">
                                 <label for="name" class="form-label">نام کامل *</label>
                                 <input id="name" type="text" class="form-control" name="name" value="" required autofocus="">

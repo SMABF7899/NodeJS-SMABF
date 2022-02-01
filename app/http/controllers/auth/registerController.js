@@ -4,7 +4,7 @@ const config = require('app/config')
 
 class registerController extends controller {
     showRegisterForm(req, res) {
-        res.render('auth/register', {messages: req.flash('errors'), recaptcha: this.recaptcha.render()});
+        res.render('auth/register', {errors: req.flash('errors'), recaptcha: this.recaptcha.render()});
     }
 
     registerProcess(req, res, next) {
