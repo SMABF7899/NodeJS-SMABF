@@ -38,6 +38,7 @@ module.exports = class Application {
             secret : 'mySecretKey',
             resave : true,
             saveUninitialized : true,
+            cookie : {expires : new Date(Date.now() + 1000 * 60 * 60 * 24)},
             store : new MongoStore({ mongooseConnection : mongoose.connection })
         }));
         app.use(cookieParser('mySecretKey'));
