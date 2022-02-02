@@ -44,6 +44,7 @@ module.exports = class Application {
         app.use(cookieParser('mySecretKey'));
         app.use(flash());
         app.use(passport.initialize(undefined));
+
         app.use(passport.session(undefined));
     }
 
