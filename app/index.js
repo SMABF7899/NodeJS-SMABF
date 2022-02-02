@@ -12,6 +12,8 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const passport = require('passport')
 const {request} = require("express");
+const Helpers = require('./helpers');
+const rememberLogin = require('app/http/middleware/rememberLogin');
 
 module.exports = class Application {
     constructor() {
@@ -44,8 +46,12 @@ module.exports = class Application {
         app.use(cookieParser('mySecretKey'));
         app.use(flash());
         app.use(passport.initialize(undefined));
-
         app.use(passport.session(undefined));
+        app.use(rememberLogin.handle)
+        app.use((req, res, next) => {
+            app.locals = new Helpers(req, res).getObjects();
+            next()
+        });
     }
 
     setMongoConnection () {
