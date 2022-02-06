@@ -31,6 +31,7 @@
 ```npm i --save app-module-path```\
 ```npm i --save express-recaptcha@4.0.2```\
 ```npm i --save bcrypt```\
-```npm i --save unique-string@1.0.0```
+```npm i --save unique-string@1.0.0```\
+```npm i --save dotenv```
 
-**Copy** ```config-sample.js``` **to** ```config.js``` **and customize configs**
+**Copy** ```.env-sample``` **to** ```.env``` **and customize configs**

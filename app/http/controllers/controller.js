@@ -1,5 +1,4 @@
 const autoBind = require('auto-bind');
-const config = require("app/config");
 const Recaptcha = require('express-recaptcha').Recaptcha;
 
 module.exports = class controller {
@@ -9,7 +8,7 @@ module.exports = class controller {
     }
 
     recaptchaConfig() {
-        this.recaptcha = new Recaptcha(config.SITE_KEY, config.SECRET_KEY);
+        this.recaptcha = new Recaptcha(config.SERVICE.RECAPTCHA.SITE_KEY, config.SERVICE.RECAPTCHA.SECRET_KEY, {...config.SERVICE.RECAPTCHA.OPTIONS});
     }
 
     recaptchaValidation(req, res) {

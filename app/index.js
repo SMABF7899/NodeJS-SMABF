@@ -1,14 +1,11 @@
 const express = require('express');
 const app = express();
 const http = require('http');
-const path = require('path');
-const config = require('./config')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const validator = require('express-validator');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 const flash = require('connect-flash')
 const passport = require('passport')
 const {request} = require("express");
@@ -29,21 +26,16 @@ module.exports = class Application {
     }
 
     setConfig() {
+        //console.log(config.SESSION)
         require('app/passport/passport-local')
-        app.use(express.static('public'));
-        app.set('view engine', 'ejs');
-        app.set('views', path.resolve('./resource/views'));
+        app.use(express.static(config.LAYOUT.PUBLIC_DIR));
+        app.set('view engine', config.LAYOUT.VIEW_ENGINE);
+        app.set('views', config.LAYOUT.VIEW_DIR);
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended : true}));
         app.use(validator());
-        app.use(session({
-            secret : 'mySecretKey',
-            resave : true,
-            saveUninitialized : true,
-            cookie : {expires : new Date(Date.now() + 1000 * 60 * 60 * 24)},
-            store : new MongoStore({ mongooseConnection : mongoose.connection })
-        }));
-        app.use(cookieParser('mySecretKey'));
+        app.use(session({...config.SESSION}));
+        app.use(cookieParser(process.env.COOKIE_SECRET_KEY));
         app.use(flash());
         app.use(passport.initialize(undefined));
         app.use(passport.session(undefined));
@@ -56,7 +48,7 @@ module.exports = class Application {
 
     setMongoConnection () {
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://" + config.IP_DB + ":27017/nodejs_smabf").then(r => console.log("Connect to MongoDB " + config.IP_DB + ":27017"));
+        mongoose.connect("mongodb://" + config.DATABASE.URL + "/" + config.DATABASE.NAME).then(r => console.log("Connect to MongoDB " + config.DATABASE.URL));
     }
 
     setRouters () {

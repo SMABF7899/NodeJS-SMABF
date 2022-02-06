@@ -1,6 +1,5 @@
 const controller = require('app/http/controllers/controller');
 const passport = require('passport');
-const config = require('app/config')
 
 class registerController extends controller {
     showRegisterForm(req, res) {
