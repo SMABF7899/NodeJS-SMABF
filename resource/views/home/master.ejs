@@ -13,12 +13,13 @@
     </svg>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible"/>
-    <title>سامانه جامع امور تست و دیپلوی</title>
+    <title><%- defineContent('title') || 'سامانه جامع امور تست و دیپلوی'%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-rtl.min.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/vazir.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/home.css"/>
+    <%- style %>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -53,3 +54,14 @@
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <%- body %>
+</div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<%- script %>
+</body>
+</html>

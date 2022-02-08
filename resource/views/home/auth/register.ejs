@@ -1,0 +1,47 @@
+<div class="row pt-3 justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header"><h5>ثبت نام در سامانه</h5></div>
+            <div class="card-body">
+                <form class="form-check" method="post" action="/register" novalidate>
+                    <div class="alert alert-primary alert-dismissible" style="font-weight: bold; font-size: 16px">
+                        <svg class="flex-shrink-0 me-auto" width="24" height="24" role="img" aria-label="Info:">
+                            <use xlink:href="#info-fill"/>
+                        </svg>
+                        لطفاً موارد ستاره دار را مشخص نمایید
+                    </div>
+
+                    <%- include('./../layouts/error-messages') -%>
+
+                    <div class="form-check">
+                        <label for="name" class="form-label">نام کامل *</label>
+                        <input id="name" type="text" class="form-control" name="name" value="" required
+                               autofocus="">
+                        <br>
+                    </div>
+
+                    <div class="form-check">
+                        <label for="email" class="form-label">آدرس ایمیل *</label>
+                        <input id="email" type="email" class="form-control" name="email" value="" required
+                               autofocus="">
+                        <br>
+                    </div>
+
+                    <div class="form-check">
+                        <label for="password" class="form-label">رمز عبور *</label>
+                        <input id="password" type="password" class="form-control" name="password" value="" required
+                               autofocus="">
+                        <br>
+                    </div>
+                    <div class="form-check">
+                        <%- recaptcha %><br>
+                    </div>
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary">ثبت نام</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
