@@ -11,11 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "app-module-path": "^2.2.0",
-    "auto-bind": "^1.2.0",
+    "auto-bind": "^4.0.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "connect-flash": "^0.1.1",
-    "connect-mongo": "^2.0.1",
+    "connect-mongo": "^2.0.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
@@ -24,10 +24,10 @@
     "express-recaptcha": "^4.0.2",
     "express-session": "^1.17.2",
     "express-validator": "^5.3.1",
-    "mongoose": "^5.0.16",
-    "passport": "^0.4.0",
+    "mongoose": "^5.13.14",
+    "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "unique-string": "^1.0.0"
+    "unique-string": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

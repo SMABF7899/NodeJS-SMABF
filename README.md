@@ -16,23 +16,24 @@
 ```npm init```\
 **Enter the project information**
 
-```npm i --save express body-parser```\
-```npm i --save ejs```\
+```npm i --save express@4.17.2```\
+```npm i --save body-parser@1.19.1```\
+```npm i --save ejs@3.1.6```\
 ```npm i --save-dev nodemon```\
-```npm i --save cookie-parser```\
-```npm i --save express-validator```\
-```npm i --save express-session```\
-```npm i --save connect-mongo@2.0.1```\
-```npm i --save passport@0.4.0```\
-```npm i --save connect-flash```\
-```npm i --save mongoose@5.0.16```\
-```npm i --save passport-local```\
-```npm i --save auto-bind@1.2.0```\
-```npm i --save app-module-path```\
+```npm i --save cookie-parser@1.4.6```\
+```npm i --save express-validator@5.3.1```\
+```npm i --save express-session@1.17.2```\
+```npm i --save connect-mongo@2.0.3```\
+```npm i --save passport@0.4.1```\
+```npm i --save connect-flash@0.1.1```\
+```npm i --save mongoose@5.13.14```\
+```npm i --save passport-local@1.0.0```\
+```npm i --save auto-bind@4.0.0```\
+```npm i --save app-module-path@2.2.0```\
 ```npm i --save express-recaptcha@4.0.2```\
-```npm i --save bcrypt```\
-```npm i --save unique-string@1.0.0```\
-```npm i --save dotenv```\
-```npm i --save express-ejs-layouts```
+```npm i --save bcrypt@5.0.1```\
+```npm i --save unique-string@2.0.0```\
+```npm i --save dotenv@16.0.0```\
+```npm i --save express-ejs-layouts@2.5.1```
 
 **Copy** ```.env-sample``` **to** ```.env``` **and customize configs**
